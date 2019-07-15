@@ -14,9 +14,16 @@ class Int8 : public IOperand
 {
     public:
 
-    Int8() = default;
+    Int8(int8_t);
     ~Int8() override = default;
+    IOperand* operator+(const IOperand &rhs) const override;
+    IOperand* operator-(const IOperand &rhs) const override;
+    IOperand* operator*(const IOperand &rhs) const override;
+    IOperand* operator/(const IOperand &rhs) const override;
+    IOperand* operator%(const IOperand &rhs) const override;
 
+    private:
+        int8_t _value;
 };
 
 #endif
