@@ -6,6 +6,8 @@
 ##
 
 SRC	=	src/main.cpp \
+		src/Exception.cpp \
+		src/Parsing.cpp
 
 NAME	=	abstractVM
 

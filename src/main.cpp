@@ -9,5 +9,6 @@
 
 int main(int ac, char **av)
 {
+    Parsing parsing(ac, av);
     return 0;
 }
