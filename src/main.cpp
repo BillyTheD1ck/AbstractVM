@@ -9,5 +9,13 @@
 
 int main(int ac, char **av)
 {
-    return 0;
+    try {
+        abstractVM parsing(ac, av);
+    }
+    catch(std::exception const &e) {
+        std::cerr << e.what() << std::endl;
+        return (84);
+    }
+    return (0);
+
 }
