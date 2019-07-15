@@ -6,15 +6,30 @@
 */
 
 #include "abstractVM.hpp"
-#include "Exception.hpp"
 
 void abstractVM::fromFile(char *arg)
 {
-    arg = arg;
+    std::string line;
+    std::ifstream input;
+
+    input.open(arg, std::ifstream::in);
+    while (std::getline(input, line)) {
+        std::cout << "line: " << line << std::endl;
+        if (line.at(0) == ';')
+            continue;
+    }
 }
 
 void abstractVM::fromInput()
 {
+    std::string line;
+
+    while (std::cin) {
+        getline(std::cin, line);
+        std::cout << "line: " << line << std::endl;
+        if (line == ";;")
+            break;
+    }
 }
 
 abstractVM::abstractVM(int ac, char **av)
@@ -25,8 +40,4 @@ abstractVM::abstractVM(int ac, char **av)
         fromInput();
     if (ac == 2)
         fromFile(av[1]);
-}
-
-abstractVM::~abstractVM()
-{
 }
