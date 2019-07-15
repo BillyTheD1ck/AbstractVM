@@ -6,6 +6,7 @@
 ##
 
 SRC	=	src/main.cpp \
+		src/Exception.cpp \
 
 NAME	=	abstractVM
 
