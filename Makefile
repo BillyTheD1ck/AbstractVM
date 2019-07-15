@@ -7,7 +7,7 @@
 
 SRC	=	src/main.cpp \
 		src/Exception.cpp \
-		src/Parsing.cpp
+		src/abstractVM.cpp
 
 NAME	=	abstractVM
 
