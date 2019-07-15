@@ -1,1 +1,0 @@
-/usr/bin/c++  -g   CMakeFiles/SYN_abstractVM_2018.dir/src/Exception.cpp.o CMakeFiles/SYN_abstractVM_2018.dir/src/main.cpp.o  -o SYN_abstractVM_2018 
