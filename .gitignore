@@ -3,3 +3,8 @@
 abstractVM
 a.out
 example.avm
+CMakelists.txt
+*#
+#*
+*'
+'*
