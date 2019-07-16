@@ -6,7 +6,10 @@
 */
 
 #include <vector>
-#include "IOperand.hpp"
+#include <string>
+#include <iostream>
+#include <fstream>
+#include "Exception.hpp"
 
 #ifndef IOMANAGER_HPP_
 #define IOMANAGER_HPP_
@@ -14,12 +17,16 @@
 class IOManager
 {
     public:
-        IOManager();
+        IOManager(int ac, char **av);
         ~IOManager() = default;
+        void fromFile(char *arg);
+        void fromInput();
+        void printOutput();
+        void setOutput(std::string output);
 
     private:
         std::vector<std::string> _inputs;
-        std::vector<std::string> _outputs;
+        std::string _output;
 };
 
 #endif
