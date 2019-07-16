@@ -17,15 +17,19 @@
 class IOManager
 {
     public:
-        IOManager(int ac, char **av);
+
+        IOManager() = default;
         ~IOManager() = default;
-        std::vector<std::string> fromFile(char *arg);
-        std::vector<std::string> fromInput();
+
+        std::vector<std::string> getInstructions(int ac, char **av);
         void printOutput(std::string output);
         void printError(std::string error);
 
     private:
-        std::vector<std::string> _inputs;
+
+    std::vector<std::string> fromFile(char *arg);
+    std::vector<std::string> fromInput();
+    std::vector<std::string> _inputs;
 };
 
 #endif

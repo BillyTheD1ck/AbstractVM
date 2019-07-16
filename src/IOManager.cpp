@@ -7,14 +7,17 @@
 
 #include "IOManager.hpp"
 
-IOManager::IOManager(int ac, char **av)
+std::vector<std::string> IOManager::getInstructions(int ac, char **av)
 {
+    std::vector<std::string> result;
+
     if (ac > 2)
         throw Exception("Invalid number of arguments");
     if (ac == 1)
-        fromInput();
+        result = fromInput();
     if (ac == 2)
-        fromFile(av[1]);
+        result = fromFile(av[1]);
+    return result;
 }
 
 std::vector<std::string> IOManager::fromFile(char *arg)
@@ -23,7 +26,11 @@ std::vector<std::string> IOManager::fromFile(char *arg)
     std::ifstream input;
 
     input.open(arg, std::ifstream::in);
+    if (!input)
+        throw Exception("Error : invalid file");
     while (std::getline(input, line)) {
+        if (line.empty())
+            continue;
         if (line.at(0) == ';')
             continue;
         _inputs.push_back(line);
@@ -37,6 +44,8 @@ std::vector<std::string> IOManager::fromInput()
 
     while (std::cin) {
         getline(std::cin, line);
+        if (line.empty())
+            continue;
         if (line == ";;")
             break;
         _inputs.push_back(line);

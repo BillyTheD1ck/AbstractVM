@@ -7,35 +7,36 @@
 
 #include "Chipset.hpp"
 
-Chipset::Chipset(int ac, char **av) : _ioManager(ac, av)
+Chipset::Chipset(int ac, char **av)
 {
+    _ioManager = IOManager();
+    _cpu = CPU();
+
+    try {
+        _instructions = _ioManager.getInstructions(ac, av);
+    }
+    catch(std::exception const &e) {
+        _ioManager.printError(e.what());
+    }
 }
 
-void Chipset::setInputs(std::vector<std::string> inputs)
+void Chipset::processInstructions()
 {
-    _inputs = inputs;
+    try {
+        while (!_instructions.empty()) {
+            if (!isInstructionValid(_instructions.at(0)))
+                throw Exception(_instructions.at(0) + " : invalid instruction");
+            // send instruction to CPU
+        }
+    }
+    catch(std::exception const &e) {
+        _ioManager.printError(e.what());
+    }
+
 }
 
-void Chipset::setOutputs(std::vector<std::string> outputs)
+bool Chipset::isInstructionValid(std::string instruction)
 {
-    _outputs = outputs;
-}
-
-std::vector<std::string> Chipset::getInputs()
-{
-    return _inputs;
-}
-
-std::vector<std::string> Chipset::getOutputs()
-{
-    return _outputs;
-}
-
-void Chipset::sendInstruction()
-{
-}
-
-void Chipset::checkValidInstruction(std::string instruction)
-{
-    instruction = instruction;
+    //to do regexp
+    return false;
 }

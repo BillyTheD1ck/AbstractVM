@@ -5,19 +5,12 @@
 ** 
 */
 
-#include "IOManager.hpp"
-#include "Exception.hpp"
-#include "Register.hpp"
+#include "Chipset.hpp"
 
 int main(int ac, char **av)
 {
-    try {
-        IOManager parsing(ac, av);
-    }
-    catch(std::exception const &e) {
-        std::cerr << e.what() << std::endl;
-        return (84);
-    }
-    return (0);
+    Chipset chipset(ac, av);
 
+    chipset.processInstructions();
+    return (0);
 }

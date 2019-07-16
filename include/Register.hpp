@@ -17,10 +17,10 @@ class Register
         Register();
         ~Register() = default;
 
-        IOperand *getAt(int);
-        int getEmptyRegister();
-        void pushAt(IOperand *, int);
-        void clearRegisterAt(int);
+        IOperand *getAt(unsigned int);
+        unsigned int getEmptyRegister();
+        void pushAt(IOperand *, unsigned int);
+        void clearRegisterAt(unsigned int);
 
     private:
         std::array<IOperand *, 16> _operands;

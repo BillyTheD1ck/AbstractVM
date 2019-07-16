@@ -9,9 +9,27 @@
 
 CPU::CPU()
 {
+    _memory = Memory();
+    _register = Register();
+    _commands["push"] = &CPU::push;
+    _commands["pop"] = &CPU::pop;
+    _commands["clear"] = &CPU::clear;
+    _commands["dup"] = &CPU::dup;
+    _commands["swap"] = &CPU::swap;
+    _commands["dump"] = &CPU::dump;
+    _commands["assert"] = &CPU::assert;
+    _commands["load"] = &CPU::load;
+    _commands["store"] = &CPU::store;
+    _commands["print"] = &CPU::print;
+    _commands["add"] = &CPU::add;
+    _commands["sub"] = &CPU::sub;
+    _commands["mul"] = &CPU::mul;
+    _commands["div"] = &CPU::div;
+    _commands["mod"] = &CPU::mod;
+    _commands["exit"] = &CPU::exit;
 }
 
-void CPU::push(IOperand *)
+void CPU::push()
 {
 }
 
@@ -35,15 +53,15 @@ void CPU::dump()
 {
 }
 
-void CPU::assert(IOperand *)
+void CPU::assert()
 {
 }
 
-void CPU::load(IOperand *)
+void CPU::load()
 {
 }
 
-void CPU::store(IOperand *)
+void CPU::store()
 {
 }
 

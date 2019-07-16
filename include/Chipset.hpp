@@ -20,21 +20,15 @@ class Chipset
         Chipset(int ac, char **av);
         ~Chipset() = default;
 
-        bool isInstructionValid(std::string instruction);
-
-        void setInputs(std::vector<std::string> inputs);
-        void setOutputs(std::vector<std::string> outputs);
-        std::vector<std::string> getInputs();
-        std::vector<std::string> getOutputs();
-        void sendInstruction();
-        void checkValidInstruction(std::string instruction);
+        void processInstructions();
 
     private:
 
+    bool isInstructionValid(std::string instruction);
+
     CPU _cpu;
     IOManager _ioManager;
-    std::vector<std::string> _inputs;
-    std::vector<std::string> _outputs;
+    std::vector<std::string> _instructions;
 };
 
 #endif

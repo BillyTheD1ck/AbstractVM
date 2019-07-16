@@ -14,7 +14,7 @@
 class Memory
 {
     public:
-        Memory();
+        Memory() = default;
         ~Memory() = default;
 
         IOperand *pop();
