@@ -5,7 +5,8 @@
 ** 
 */
 
-#include "vm.hpp"
+#include "abstractVM.hpp"
+#include "Exception.hpp"
 
 int main(int ac, char **av)
 {
