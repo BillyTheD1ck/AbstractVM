@@ -9,13 +9,24 @@
 #define INT16_HPP
 
 #include "IOperand.hpp"
+#include <sstream>
 
 class Int16 : public IOperand
 {
     public:
 
-    Int16() = default;
-    ~Int16() override = default;
+    Int16(std::string);
+    ~Int16();
+    std::string toString () const;
+    eOperandType getType () const;
+    IOperand* operator+(const IOperand &rhs) const override;
+    IOperand* operator-(const IOperand &rhs) const override;
+    IOperand* operator*(const IOperand &rhs) const override;
+    IOperand* operator/(const IOperand &rhs) const override;
+    IOperand* operator%(const IOperand &rhs) const override;
+
+    private:
+        int16_t _value;
 };
 
 #endif

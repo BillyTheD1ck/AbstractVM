@@ -9,13 +9,24 @@
 #define DOUBLE_HPP
 
 #include "IOperand.hpp"
+#include <math.h>
+#include <sstream>
 
 class Double : public IOperand
 {
     public:
+        Double(std::string);
+        ~Double() override = default;
+        std::string toString () const;
+        eOperandType getType () const;
+        IOperand* operator+(const IOperand &rhs) const override;
+        IOperand* operator-(const IOperand &rhs) const override;
+        IOperand* operator*(const IOperand &rhs) const override;
+        IOperand* operator/(const IOperand &rhs) const override;
+        IOperand* operator%(const IOperand &rhs) const override;
 
-    Double() = default;
-    ~Double() override = default;
+    private:
+        double _value;
 };
 
 #endif

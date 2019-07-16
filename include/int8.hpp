@@ -9,13 +9,16 @@
 #define INT8_HPP
 
 #include "IOperand.hpp"
+#include <sstream>
 
 class Int8 : public IOperand
 {
     public:
 
-    Int8(int8_t);
-    ~Int8() override = default;
+    Int8(std::string);
+    ~Int8() override;
+    std::string toString () const;
+    eOperandType getType () const;
     IOperand* operator+(const IOperand &rhs) const override;
     IOperand* operator-(const IOperand &rhs) const override;
     IOperand* operator*(const IOperand &rhs) const override;
