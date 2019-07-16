@@ -4,3 +4,9 @@
 ** File description:
 **
 */
+
+#include "Register.hpp"
+
+Register::Register()
+{
+}

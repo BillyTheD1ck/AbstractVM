@@ -5,20 +5,20 @@
 **
 */
 
-#include <stack>
+#include <vector>
 #include "IOperand.hpp"
 
 #ifndef REGISTERS_HPP_
 #define REGISTERS_HPP_
 
-class Memory
+class Register
 {
     public:
-        Memory();
-        ~Memory() = default;
+        Register();
+        ~Register() = default;
 
     private:
-        std::stack<IOperand *> _operands;
+        std::vector<IOperand *> _operands;
 };
 
 #endif
