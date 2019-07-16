@@ -5,8 +5,8 @@
 **
 */
 
-#include "Memory.hpp"
+#include "IOManager.hpp"
 
-Memory::Memory()
+IOManager::IOManager()
 {
 }

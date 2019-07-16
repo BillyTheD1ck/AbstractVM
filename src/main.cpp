@@ -7,9 +7,11 @@
 
 #include "abstractVM.hpp"
 #include "Exception.hpp"
+#include "Register.hpp"
 
 int main(int ac, char **av)
 {
+    Register philop;
     try {
         abstractVM parsing(ac, av);
     }

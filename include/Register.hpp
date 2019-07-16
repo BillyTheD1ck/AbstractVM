@@ -8,8 +8,8 @@
 #include <vector>
 #include "IOperand.hpp"
 
-#ifndef REGISTERS_HPP_
-#define REGISTERS_HPP_
+#ifndef REGISTER_HPP_
+#define REGISTER_HPP_
 
 class Register
 {
