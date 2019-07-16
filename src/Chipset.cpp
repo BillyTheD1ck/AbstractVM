@@ -7,7 +7,7 @@
 
 #include "Chipset.hpp"
 
-Chipset::Chipset()
+Chipset::Chipset(int ac, char **av) : _ioManager(ac, av)
 {
 }
 

@@ -5,7 +5,7 @@
 **
 */
 
-#include <vector>
+#include <array>
 #include "IOperand.hpp"
 
 #ifndef REGISTER_HPP_
@@ -17,8 +17,13 @@ class Register
         Register();
         ~Register() = default;
 
+        IOperand *getAt(int);
+        int getEmptyRegister();
+        void pushAt(IOperand *, int);
+        void clearRegisterAt(int);
+
     private:
-        std::vector<IOperand *> _operands;
+        std::array<IOperand *, 16> _operands;
 };
 
 #endif

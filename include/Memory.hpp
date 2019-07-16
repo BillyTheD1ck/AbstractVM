@@ -17,6 +17,9 @@ class Memory
         Memory();
         ~Memory() = default;
 
+        IOperand *pop();
+        void push(IOperand *);
+
     private:
         std::stack<IOperand *> _operands;
 };

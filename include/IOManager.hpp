@@ -19,14 +19,13 @@ class IOManager
     public:
         IOManager(int ac, char **av);
         ~IOManager() = default;
-        void fromFile(char *arg);
-        void fromInput();
-        void printOutput();
-        void setOutput(std::string output);
+        std::vector<std::string> fromFile(char *arg);
+        std::vector<std::string> fromInput();
+        void printOutput(std::string output);
+        void printError(std::string error);
 
     private:
         std::vector<std::string> _inputs;
-        std::string _output;
 };
 
 #endif

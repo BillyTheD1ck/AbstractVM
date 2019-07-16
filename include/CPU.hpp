@@ -18,6 +18,10 @@ class CPU
     public:
         CPU();
         ~CPU() = default;
+
+        void getInstruction();
+        void getInstruction(std::string);
+
         void push(IOperand *);
         void pop();
         void clear();

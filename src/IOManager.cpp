@@ -5,7 +5,6 @@
 **
 */
 
-#include <IOManager.hpp>
 #include "IOManager.hpp"
 
 IOManager::IOManager(int ac, char **av)
@@ -18,7 +17,7 @@ IOManager::IOManager(int ac, char **av)
         fromFile(av[1]);
 }
 
-void IOManager::fromFile(char *arg)
+std::vector<std::string> IOManager::fromFile(char *arg)
 {
     std::string line;
     std::ifstream input;
@@ -29,9 +28,10 @@ void IOManager::fromFile(char *arg)
             continue;
         _inputs.push_back(line);
     }
+    return _inputs;
 }
 
-void IOManager::fromInput()
+std::vector<std::string> IOManager::fromInput()
 {
     std::string line;
 
@@ -41,14 +41,15 @@ void IOManager::fromInput()
             break;
         _inputs.push_back(line);
     }
+    return _inputs;
 }
 
-void IOManager::printOutput()
+void IOManager::printOutput(std::string output)
 {
-    std::cout << _output << std::endl;
+    std::cout << output << std::endl;
 }
 
-void IOManager::setOutput(std::string output)
+void IOManager::printError(std::string error)
 {
-    _output = output;
+    std::cerr << error << std::endl;
 }
