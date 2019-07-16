@@ -8,7 +8,9 @@
 SRC	=	src/main.cpp \
 		src/Exception.cpp \
 		src/abstractVM.cpp	\
-		src/Chipset.cpp
+		src/Chipset.cpp	\
+		src/Memory.cpp	\
+		src/Register.cpp	\
 
 NAME	=	abstractVM
 
