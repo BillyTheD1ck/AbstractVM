@@ -1,22 +1,22 @@
 /*
 ** EPITECH PROJECT, 2022
-** int8.cpp
+** int16.cpp
 ** File description:
 ** Created by Ervin,
 */
 
-#include "../include/int8.hpp"
+#include "../include/int16.hpp"
 
-Int8::Int8(std::string val)
+Int16::Int16(std::string val)
 {
     _value = std::stoi(val);
 }
 
-Int8::~Int8()
+Int16::~Int16()
 {
 }
 
-std::string Int8::toString() const
+std::string Int16::toString() const
 {
     std::ostringstream ss;
     ss << _value;
@@ -24,57 +24,57 @@ std::string Int8::toString() const
     return s;
 }
 
-eOperandType Int8::getType() const
+eOperandType Int16::getType() const
 {
-    return INT8;
+    return INT16;
 }
 
-IOperand* Int8::operator-(const IOperand &rhs) const
+IOperand* Int16::operator-(const IOperand &rhs) const
 {
-    int8_t val = _value - std::stoi(rhs.toString());
+    int16_t val = _value - std::stoi(rhs.toString());
 
     std::ostringstream ss;
     ss << val;
     std::string s(ss.str());
-    return new Int8(s);
+    return new Int16(s);
 }
 
-IOperand* Int8::operator+(const IOperand &rhs) const
+IOperand* Int16::operator+(const IOperand &rhs) const
 {
     int8_t val = _value + std::stoi(rhs.toString());
 
     std::ostringstream ss;
     ss << val;
     std::string s(ss.str());
-    return new Int8(s);
+    return new Int16(s);
 }
 
-IOperand* Int8::operator*(const IOperand &rhs) const
+IOperand* Int16::operator*(const IOperand &rhs) const
 {
     int8_t val = _value * std::stoi(rhs.toString());
 
     std::ostringstream ss;
     ss << val;
     std::string s(ss.str());
-    return new Int8(s);
+    return new Int16(s);
 }
 
-IOperand* Int8::operator%(const IOperand &rhs) const
+IOperand* Int16::operator%(const IOperand &rhs) const
 {
     int8_t val = _value % std::stoi(rhs.toString());
 
     std::ostringstream ss;
     ss << val;
     std::string s(ss.str());
-    return new Int8(s);
+    return new Int16(s);
 }
 
-IOperand* Int8::operator/(const IOperand &rhs) const
+IOperand* Int16::operator/(const IOperand &rhs) const
 {
     int8_t val = _value / std::stoi(rhs.toString());
 
     std::ostringstream ss;
     ss << val;
     std::string s(ss.str());
-    return new Int8(s);
+    return new Int16(s);
 }
