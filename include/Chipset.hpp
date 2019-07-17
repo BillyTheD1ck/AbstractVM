@@ -7,6 +7,7 @@
 
 #include <string>
 #include <vector>
+#include <regex>
 #include "Exception.hpp"
 #include "CPU.hpp"
 #include "IOManager.hpp"
