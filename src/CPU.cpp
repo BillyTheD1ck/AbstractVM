@@ -87,8 +87,8 @@ void CPU::swap()
     IOperand *first = _memory.pop();
     IOperand *second = _memory.pop();
 
-    _memory.push(second);
     _memory.push(first);
+    _memory.push(second);
 }
 
 void CPU::dump()
