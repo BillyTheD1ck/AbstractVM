@@ -42,5 +42,21 @@ void Chipset::processInstructions()
 
 std::vector<std::string> Chipset::getInstruction(std::string instruction)
 {
+    std::regex rgx("^(push|assert|load|store) (int8|int16|int32|float|double|bigdecimal)\\(([-+]?[0-9]*\\.?[0-9]+)\\)|^(pop|clear|dup|swap|dump|add|sub|mul|div|mod|exit)$");
+    std::smatch matches;
+    std::vector<std::string> arguments;
+
+    if(!std::regex_search(instruction, matches, rgx))
+        throw Exception("\"Error : \"" + instruction + "\" is not a valid instruction");
+    for (size_t i = 0; i < matches.size(); ++i) {
+        if (matches[i].str() != "")
+            arguments.push_back(matches[i].str());
+    }
+    arguments.erase(arguments.begin());
+    if (arguments.at(0) == "load" || arguments.at(0) == "store") {
+        if (atoi(arguments.at(2).c_str()) > 15 || atoi(arguments.at(2).c_str()) < 0)
+            throw Exception("Error : register " + arguments.at(2) + " does not exist");
+    }
+    return arguments;
 
 }
