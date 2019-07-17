@@ -7,6 +7,7 @@
 
 #include <vector>
 #include <map>
+#include <sstream>
 #include "IOperand.hpp"
 #include "Memory.hpp"
 #include "Register.hpp"
@@ -20,8 +21,7 @@ class CPU
         CPU();
         ~CPU() = default;
 
-        void getInstruction();
-        void getInstruction(std::string);
+        void executeInstruction(std::vector<std::string> instruction);
 
         void push();
         void pop();
@@ -40,13 +40,17 @@ class CPU
         void mod();
         void exit();
 
-    void setArgument(const std::string &argument) {_argument = argument;}
+    void setValue(const std::string &value) {_value = value;}
+    void setValueType(const std::string &value) {_valueType = value;}
+    void setReturnValue(const std::string &value) {_returnValue = value;}
+    const std::string &get_returnValue() const {return _returnValue;}
 
     private:
 
         Memory _memory;
         Register _register;
-        std::string _argument;
+        std::string _valueType;
+        std::string _value;
         std::string _returnValue;
         std::map<std::string, void (CPU::*)(void)> _commands;
 };

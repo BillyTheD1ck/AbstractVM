@@ -29,6 +29,13 @@ CPU::CPU()
     _commands["exit"] = &CPU::exit;
 }
 
+void CPU::executeInstruction(std::vector<std::string> instruction)
+{
+
+    _value = nullptr;
+    _valueType = nullptr;
+}
+
 void CPU::push()
 {
 }
