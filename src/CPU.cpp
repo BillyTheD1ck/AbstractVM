@@ -65,9 +65,8 @@ void CPU::pop()
 
 void CPU::clear()
 {
-    for (unsigned int i = 0; i < _memory.getSize(); i++) {
+    for (std::stack<IOperand *> tmp = _memory.getStack(); !tmp.empty(); tmp.pop())
         _memory.pop();
-    }
 }
 
 void CPU::dup()
