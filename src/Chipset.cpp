@@ -24,8 +24,8 @@ void Chipset::processInstructions()
 {
     try {
         while (!_instructions.empty()) {
-            std::vector<std::string> = getInstruction(_instructions.at(0);
-            _cpu.executeInstruction();
+            std::vector<std::string> instructions = getInstruction(_instructions.at(0);
+            _cpu.executeInstruction(instructions);
             if (!_cpu.get_returnValue().empty() && _cpu.get_returnValue() == "exit")
                 break;
             if (!_cpu.get_returnValue().empty())
