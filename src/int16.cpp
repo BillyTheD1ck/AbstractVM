@@ -41,7 +41,7 @@ IOperand* Int16::operator-(const IOperand &rhs) const
 
 IOperand* Int16::operator+(const IOperand &rhs) const
 {
-    int8_t val = _value + std::stoi(rhs.toString());
+    int16_t val = _value + std::stoi(rhs.toString());
 
     std::ostringstream ss;
     ss << val;
@@ -51,7 +51,7 @@ IOperand* Int16::operator+(const IOperand &rhs) const
 
 IOperand* Int16::operator*(const IOperand &rhs) const
 {
-    int8_t val = _value * std::stoi(rhs.toString());
+    int16_t val = _value * std::stoi(rhs.toString());
 
     std::ostringstream ss;
     ss << val;
@@ -61,7 +61,7 @@ IOperand* Int16::operator*(const IOperand &rhs) const
 
 IOperand* Int16::operator%(const IOperand &rhs) const
 {
-    int8_t val = _value % std::stoi(rhs.toString());
+    int16_t val = _value % std::stoi(rhs.toString());
 
     std::ostringstream ss;
     ss << val;
@@ -71,7 +71,7 @@ IOperand* Int16::operator%(const IOperand &rhs) const
 
 IOperand* Int16::operator/(const IOperand &rhs) const
 {
-    int8_t val = _value / std::stoi(rhs.toString());
+    int16_t val = _value / std::stoi(rhs.toString());
 
     std::ostringstream ss;
     ss << val;
