@@ -25,6 +25,7 @@ unsigned int Register::getEmptyRegister()
         if (_operands.at(i) == nullptr)
             return i;
     }
+    return -1;
 }
 
 void Register::pushAt(IOperand * operand, unsigned int pos)

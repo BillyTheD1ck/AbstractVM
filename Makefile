@@ -12,6 +12,13 @@ SRC	=	src/main.cpp \
 		src/Register.cpp	\
 		src/CPU.cpp	\
 		src/IOManager.cpp	\
+		src/bigDecimal.cpp	\
+		src/double.cpp	\
+		src/Factory.cpp	\
+		src/float.cpp	\
+		src/int8.cpp	\
+		src/int16.cpp	\
+		src/int32.cpp	\
 
 NAME	=	abstractVM
 
