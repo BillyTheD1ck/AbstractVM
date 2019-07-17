@@ -1,7 +1,5 @@
 #!/bin/bash
-
-echo '################ 12*push, dump and exit (EXPECTED) ###########'
-echo '3
+to_verify='3
 2432
 49
 51
@@ -13,5 +11,13 @@ echo '3
 44.55
 33333
 89042'
+echo '################ 12*push, dump and exit (EXPECTED) ###########'
+echo $to_verify
 echo '################ 12*push, dump and exit (GOT) ################'
-../.././abstractVM 2>/dev/null < input
+nb=`../.././abstractVM 2>/dev/null < input`
+echo $nb
+if [[ $to_verify == $nb ]]; then
+  	echo -e "\e[92m[SUCCESS]\e[0m"
+else
+	echo -e "\e[91m[FAILURE]\e[0m"
+fi
