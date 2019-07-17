@@ -132,28 +132,104 @@ void CPU::store()
 
 void CPU::print()
 {
+
 }
 
 void CPU::add()
 {
+    if (_memory.getSize() < 2)
+        throw Exception("Error : add on stack of size less than 2.");
+
+    eOperandType type;
+    IOperand *first = _memory.pop();
+    IOperand *second = _memory.pop();
+    if (first->getType() < second->getType())
+        type = second->getType();
+    else
+        type = first->getType();
+    IOperand *operand1 = Factory::createOperand(type, first->toString());
+    IOperand *operand2 = Factory::createOperand(type, second->toString());
+    IOperand *result = operand1->operator+(*operand2);
+    _memory.push(result);
 }
 
 void CPU::sub()
 {
+    if (_memory.getSize() < 2)
+        throw Exception("Error : sub on stack of size less than 2.");
+
+    eOperandType type;
+    IOperand *first = _memory.pop();
+    IOperand *second = _memory.pop();
+    if (first->getType() < second->getType())
+        type = second->getType();
+    else
+        type = first->getType();
+    IOperand *operand1 = Factory::createOperand(type, first->toString());
+    IOperand *operand2 = Factory::createOperand(type, second->toString());
+    IOperand *result = operand1->operator-(*operand2);
+    _memory.push(result);
 }
 
 void CPU::mul()
 {
+    if (_memory.getSize() < 2)
+        throw Exception("Error : mul on stack of size less than 2.");
+
+    eOperandType type;
+    IOperand *first = _memory.pop();
+    IOperand *second = _memory.pop();
+    if (first->getType() < second->getType())
+        type = second->getType();
+    else
+        type = first->getType();
+    IOperand *operand1 = Factory::createOperand(type, first->toString());
+    IOperand *operand2 = Factory::createOperand(type, second->toString());
+    IOperand *result = operand1->operator*(*operand2);
+    _memory.push(result);
 }
 
 void CPU::div()
 {
+    if (_memory.getSize() < 2)
+        throw Exception("Error : div on stack of size less than 2.");
+
+    eOperandType type;
+    IOperand *first = _memory.pop();
+    IOperand *second = _memory.pop();
+    if (std::stoi(second->toString()) == 0)
+        throw Exception("Error : div by 0.");
+    if (first->getType() < second->getType())
+        type = second->getType();
+    else
+        type = first->getType();
+    IOperand *operand1 = Factory::createOperand(type, first->toString());
+    IOperand *operand2 = Factory::createOperand(type, second->toString());
+    IOperand *result = operand1->operator/(*operand2);
+    _memory.push(result);
 }
 
 void CPU::mod()
 {
+    if (_memory.getSize() < 2)
+        throw Exception("Error : mod on stack of size less than 2.");
+
+    eOperandType type;
+    IOperand *first = _memory.pop();
+    IOperand *second = _memory.pop();
+    if (std::stoi(second->toString()) == 0)
+        throw Exception("Error : mod by 0.");
+    if (first->getType() < second->getType())
+        type = second->getType();
+    else
+        type = first->getType();
+    IOperand *operand1 = Factory::createOperand(type, first->toString());
+    IOperand *operand2 = Factory::createOperand(type, second->toString());
+    IOperand *result = operand1->operator%(*operand2);
+    _memory.push(result);
 }
 
 void CPU::exit()
 {
+    _returnValue = "exit";
 }
