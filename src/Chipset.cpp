@@ -24,6 +24,8 @@ Chipset::Chipset(int ac, char **av)
 void Chipset::processInstructions()
 {
     try {
+        if (_instructions.empty())
+            throw Exception("Error : no instruction to process.");
         while (!_instructions.empty()) {
             std::vector<std::string> instruction = getInstruction(_instructions.at(0));
             if (instruction.empty()) {
