@@ -5,15 +5,17 @@
 ** Created by Ervin,
 */
 
-#include "../include/int8.hpp"
+#include "int8.hpp"
+#include "Exception.hpp"
 
 Int8::Int8(std::string val)
 {
-    _value = std::stoi(val);
-}
+    if (std::atoi(val.c_str()) < -128)
+        throw Exception("Error : int8 underflow.");
+    if (std::atoi(val.c_str()) > 127)
+        throw Exception("Error : int8 overflow.");
 
-Int8::~Int8()
-{
+    _value = std::stoi(val);
 }
 
 std::string Int8::toString() const
