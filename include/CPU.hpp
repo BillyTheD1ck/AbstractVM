@@ -9,8 +9,10 @@
 #include <map>
 #include <sstream>
 #include "IOperand.hpp"
+#include "Factory.h"
 #include "Memory.hpp"
 #include "Register.hpp"
+#include "Exception.hpp"
 
 #ifndef CPU_HPP_
 #define CPU_HPP_
@@ -22,6 +24,13 @@ class CPU
         ~CPU() = default;
 
         void executeInstruction(std::vector<std::string> instruction);
+
+    void setValue(const std::string &value) {_value = value;}
+    void setValueType(const std::string &value) {_valueType = value;}
+    void setReturnValue(const std::string &value) {_returnValue = value;}
+    std::string &get_returnValue() {return _returnValue;}
+
+    private:
 
         void push();
         void pop();
@@ -40,19 +49,13 @@ class CPU
         void mod();
         void exit();
 
-    void setValue(const std::string &value) {_value = value;}
-    void setValueType(const std::string &value) {_valueType = value;}
-    void setReturnValue(const std::string &value) {_returnValue = value;}
-    const std::string &get_returnValue() const {return _returnValue;}
-
-    private:
-
         Memory _memory;
         Register _register;
         std::string _valueType;
         std::string _value;
         std::string _returnValue;
         std::map<std::string, void (CPU::*)(void)> _commands;
+        std::map<std::string, eOperandType> _operandTypes;
 };
 
 #endif

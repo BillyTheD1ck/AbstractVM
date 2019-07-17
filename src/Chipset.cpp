@@ -24,9 +24,14 @@ void Chipset::processInstructions()
 {
     try {
         while (!_instructions.empty()) {
-            if (!isInstructionValid(_instructions.at(0)))
-                throw Exception(_instructions.at(0) + " : invalid instruction");
-            // send instruction to CPU
+            std::vector<std::string> = getInstruction(_instructions.at(0);
+            _cpu.executeInstruction();
+            if (!_cpu.get_returnValue().empty() && _cpu.get_returnValue() == "exit")
+                break;
+            if (!_cpu.get_returnValue().empty())
+                _ioManager.printOutput(_cpu.get_returnValue());
+            if (_instructions.size() == 1 && _instructions.at(0) != "exit")
+                throw Exception("Error : program ended without exit.");
         }
     }
     catch(std::exception const &e) {
@@ -35,8 +40,7 @@ void Chipset::processInstructions()
 
 }
 
-bool Chipset::isInstructionValid(std::string instruction)
+std::vector<std::string> Chipset::getInstruction(std::string instruction)
 {
-    //to do regexp
-    return false;
+
 }

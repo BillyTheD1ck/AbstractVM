@@ -18,3 +18,8 @@ void Memory::push(IOperand *operand)
 {
     _operands.push(operand);
 }
+
+IOperand* Memory::top()
+{
+    return _operands.top();
+}

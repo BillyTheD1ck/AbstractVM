@@ -31,8 +31,6 @@ std::vector<std::string> IOManager::fromFile(char *arg)
     while (std::getline(input, line)) {
         if (line.empty())
             continue;
-        if (line.at(0) == ';')
-            continue;
         _inputs.push_back(line);
     }
     return _inputs;

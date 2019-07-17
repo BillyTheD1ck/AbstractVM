@@ -19,6 +19,9 @@ class Memory
 
         IOperand *pop();
         void push(IOperand *);
+        unsigned long int getSize() {return _operands.size();}
+        IOperand *top();
+        std::stack<IOperand *> getStack() { return _operands;}
 
     private:
         std::stack<IOperand *> _operands;

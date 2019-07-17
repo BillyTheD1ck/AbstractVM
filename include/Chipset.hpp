@@ -24,7 +24,7 @@ class Chipset
 
     private:
 
-    bool isInstructionValid(std::string instruction);
+    std::vector<std::string> getInstruction(std::string instruction);
 
     CPU _cpu;
     IOManager _ioManager;
