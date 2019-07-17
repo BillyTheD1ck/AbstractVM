@@ -14,7 +14,8 @@
 class Float : public IOperand
 {
     public:
-        Float(std::string);
+
+        explicit Float(std::string);
         ~Float() override = default;
 
         std::string toString () const override;

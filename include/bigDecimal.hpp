@@ -14,8 +14,8 @@ class BigDecimal : public IOperand
 {
     public:
 
-    BigDecimal(std::string);
-    ~BigDecimal() = default;
+    explicit BigDecimal(std::string);
+    ~BigDecimal() override = default;
     std::string toString() const override;
     eOperandType getType() const override;
     IOperand* operator+(const IOperand &rhs) const override;

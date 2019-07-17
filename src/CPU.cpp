@@ -93,8 +93,14 @@ void CPU::swap()
 
 void CPU::dump()
 {
-    for (std::stack<IOperand *> tmp = _memory.getStack(); !tmp.empty(); tmp.pop())
-        _returnValue += tmp.top()->toString() + "\n";
+    for (std::stack<IOperand *> tmp = _memory.getStack(); !tmp.empty(); tmp.pop()) {
+        if (tmp.top()->getType() == INT8) {
+            _returnValue += (char)std::atoi(tmp.top()->toString().c_str());
+            _returnValue += "\n";
+        }
+        else
+            _returnValue += tmp.top()->toString() + "\n";
+    }
 }
 
 void CPU::assert()

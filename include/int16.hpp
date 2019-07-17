@@ -15,8 +15,8 @@ class Int16 : public IOperand
 {
     public:
 
-    Int16(std::string);
-    ~Int16() = default;
+    explicit Int16(std::string val);
+    ~Int16() override = default;
     std::string toString () const override;
     eOperandType getType () const override;
     IOperand* operator+(const IOperand &rhs) const override;

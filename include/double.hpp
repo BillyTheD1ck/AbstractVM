@@ -15,8 +15,10 @@
 class Double : public IOperand
 {
     public:
-        Double(std::string);
+
+        explicit Double(std::string);
         ~Double() override = default;
+
         std::string toString () const override;
         eOperandType getType () const override;
         IOperand* operator+(const IOperand &rhs) const override;

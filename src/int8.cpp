@@ -15,7 +15,8 @@ Int8::Int8(std::string val)
     if (std::atoi(val.c_str()) > 127)
         throw Exception("Error : int8 overflow.");
 
-    _value = std::stoi(val);
+    int i = std::atoi(val.c_str());
+    _value = i;
 }
 
 std::string Int8::toString() const
@@ -31,9 +32,9 @@ eOperandType Int8::getType() const
     return INT8;
 }
 
-IOperand* Int8::operator-(const IOperand &rhs) const
+IOperand* Int8::operator+(const IOperand &rhs) const
 {
-    int8_t val = _value - std::stoi(rhs.toString());
+    int val = _value + std::stoi(rhs.toString());
 
     std::ostringstream ss;
     ss << val;
@@ -41,9 +42,9 @@ IOperand* Int8::operator-(const IOperand &rhs) const
     return new Int8(s);
 }
 
-IOperand* Int8::operator+(const IOperand &rhs) const
+IOperand* Int8::operator-(const IOperand &rhs) const
 {
-    int8_t val = _value + std::stoi(rhs.toString());
+    int val = _value - std::stoi(rhs.toString());
 
     std::ostringstream ss;
     ss << val;
@@ -53,7 +54,7 @@ IOperand* Int8::operator+(const IOperand &rhs) const
 
 IOperand* Int8::operator*(const IOperand &rhs) const
 {
-    int8_t val = _value * std::stoi(rhs.toString());
+    int val = _value * std::stoi(rhs.toString());
 
     std::ostringstream ss;
     ss << val;
@@ -63,7 +64,7 @@ IOperand* Int8::operator*(const IOperand &rhs) const
 
 IOperand* Int8::operator%(const IOperand &rhs) const
 {
-    int8_t val = _value % std::stoi(rhs.toString());
+    int val = _value % std::stoi(rhs.toString());
 
     std::ostringstream ss;
     ss << val;
@@ -73,7 +74,7 @@ IOperand* Int8::operator%(const IOperand &rhs) const
 
 IOperand* Int8::operator/(const IOperand &rhs) const
 {
-    int8_t val = _value / std::stoi(rhs.toString());
+    int val = _value / std::stoi(rhs.toString());
 
     std::ostringstream ss;
     ss << val;

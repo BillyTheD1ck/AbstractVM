@@ -15,8 +15,8 @@ class Int32 : public IOperand
 {
     public:
 
-    Int32(std::string);
-    ~Int32() = default;
+    explicit Int32(std::string);
+    ~Int32()override  = default;
     std::string toString () const override;
     eOperandType getType () const override;
     IOperand* operator+(const IOperand &rhs) const override;
