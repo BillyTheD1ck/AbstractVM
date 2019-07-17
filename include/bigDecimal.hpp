@@ -23,6 +23,11 @@ class BigDecimal : public IOperand
     IOperand* operator*(const IOperand &rhs) const override;
     IOperand* operator/(const IOperand &rhs) const override;
     IOperand* operator%(const IOperand &rhs) const override;
+
+    private:
+
+    std::string _bigInt;
+    int _coma;
 };
 
 #endif
