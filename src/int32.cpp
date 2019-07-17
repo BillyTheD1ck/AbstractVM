@@ -12,10 +12,6 @@ Int32::Int32(std::string val)
     _value = std::stoi(val);
 }
 
-Int32::~Int32()
-{
-}
-
 std::string Int32::toString() const
 {
     std::ostringstream ss;

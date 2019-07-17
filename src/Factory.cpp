@@ -31,7 +31,7 @@ std::map<eOperandType, IOperand *(Factory::*)(const std::string &value)> Factory
 
 IOperand* Factory::createOperand(eOperandType type, const std::string &value)
 {
-    Factory *factory;
+    Factory *factory = new Factory();
     IOperand *(Factory::*f)(const std::string &value);
     f = factory->getOperants().at(type);
     return ((*factory.*f)(value));

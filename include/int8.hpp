@@ -17,8 +17,8 @@ class Int8 : public IOperand
 
     Int8(std::string);
     ~Int8() override;
-    std::string toString () const;
-    eOperandType getType () const;
+    std::string toString () const override;
+    eOperandType getType () const override;
     IOperand* operator+(const IOperand &rhs) const override;
     IOperand* operator-(const IOperand &rhs) const override;
     IOperand* operator*(const IOperand &rhs) const override;

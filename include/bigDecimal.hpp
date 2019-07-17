@@ -15,9 +15,9 @@ class BigDecimal : public IOperand
     public:
 
     BigDecimal(std::string);
-    ~BigDecimal() override = default;
-    std::string toString() const;
-    eOperandType getType() const;
+    ~BigDecimal() = default;
+    std::string toString() const override;
+    eOperandType getType() const override;
     IOperand* operator+(const IOperand &rhs) const override;
     IOperand* operator-(const IOperand &rhs) const override;
     IOperand* operator*(const IOperand &rhs) const override;
@@ -27,7 +27,7 @@ class BigDecimal : public IOperand
     private:
 
     std::string _bigInt;
-    int _coma;
+    unsigned int _coma;
 };
 
 #endif

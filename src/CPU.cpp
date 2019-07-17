@@ -38,6 +38,7 @@ CPU::CPU()
 
 void CPU::executeInstruction(std::vector<std::string> instruction)
 {
+    _returnValue = "";
     if (instruction.size() == 3) {
         _valueType = instruction.at(1);
         _value = instruction.at(2);
@@ -45,9 +46,8 @@ void CPU::executeInstruction(std::vector<std::string> instruction)
     void (CPU::*f)();
     f = _commands.at(instruction.at(0));
     (*this.*f)();
-    _value = nullptr;
-    _returnValue = nullptr;
-    _valueType = nullptr;
+    _value = "";
+    _valueType = "";
 }
 
 void CPU::push()

@@ -17,6 +17,7 @@ Chipset::Chipset(int ac, char **av)
     }
     catch(std::exception const &e) {
         _ioManager.printError(e.what());
+        exit(84);
     }
 }
 
@@ -24,20 +25,25 @@ void Chipset::processInstructions()
 {
     try {
         while (!_instructions.empty()) {
-            std::vector<std::string> instructions = getInstruction(_instructions.at(0));
-            _cpu.executeInstruction(instructions);
-            if (!_cpu.get_returnValue().empty() && _cpu.get_returnValue() == "exit")
+            std::vector<std::string> instruction = getInstruction(_instructions.at(0));
+            if (instruction.empty()) {
+                _instructions.erase(_instructions.begin());
+                continue;
+            }
+            _cpu.executeInstruction(instruction);
+            if (!_cpu.getReturnValue().empty() && _cpu.getReturnValue() == "exit")
                 break;
-            if (!_cpu.get_returnValue().empty())
-                _ioManager.printOutput(_cpu.get_returnValue());
+            if (!_cpu.getReturnValue().empty())
+                _ioManager.printOutput(_cpu.getReturnValue());
             if (_instructions.size() == 1 && _instructions.at(0) != "exit")
                 throw Exception("Error : program ended without exit.");
+            _instructions.erase(_instructions.begin());
         }
     }
     catch(std::exception const &e) {
         _ioManager.printError(e.what());
+        exit(84);
     }
-
 }
 
 std::vector<std::string> Chipset::getInstruction(std::string instruction)
@@ -46,6 +52,8 @@ std::vector<std::string> Chipset::getInstruction(std::string instruction)
     std::smatch matches;
     std::vector<std::string> arguments;
 
+    if (instruction.at(0) == ';')
+        return arguments;
     if(!std::regex_search(instruction, matches, rgx))
         throw Exception("\"Error : \"" + instruction + "\" is not a valid instruction");
     for (size_t i = 0; i < matches.size(); ++i) {

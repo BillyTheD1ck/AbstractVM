@@ -17,8 +17,8 @@ class Int16 : public IOperand
 
     Int16(std::string);
     ~Int16();
-    std::string toString () const;
-    eOperandType getType () const;
+    std::string toString () const override;
+    eOperandType getType () const override;
     IOperand* operator+(const IOperand &rhs) const override;
     IOperand* operator-(const IOperand &rhs) const override;
     IOperand* operator*(const IOperand &rhs) const override;

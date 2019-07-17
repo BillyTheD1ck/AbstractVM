@@ -53,7 +53,7 @@ std::vector<std::string> IOManager::fromInput()
 
 void IOManager::printOutput(std::string output)
 {
-    std::cout << output << std::endl;
+    std::cout << output;
 }
 
 void IOManager::printError(std::string error)

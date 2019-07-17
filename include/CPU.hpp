@@ -28,7 +28,7 @@ class CPU
     void setValue(const std::string &value) {_value = value;}
     void setValueType(const std::string &value) {_valueType = value;}
     void setReturnValue(const std::string &value) {_returnValue = value;}
-    std::string &get_returnValue() {return _returnValue;}
+    std::string &getReturnValue() {return _returnValue;}
 
     private:
 
