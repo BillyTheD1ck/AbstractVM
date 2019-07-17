@@ -42,7 +42,7 @@ void Chipset::processInstructions()
 
 std::vector<std::string> Chipset::getInstruction(std::string instruction)
 {
-    std::regex rgx("^(push|assert|load|store) (int8|int16|int32|float|double|bigdecimal)\\(([^\\)]+)\\)|^(pop|clear|dup|swap|dump|add|sub|mul|div|mod|exit)$");
+    std::regex rgx("^(push|assert|load|store) (int8|int16|int32|float|double|bigdecimal)\\(([-+]?[0-9]*\\.?[0-9]+)\\)|^(pop|clear|dup|swap|dump|add|sub|mul|div|mod|exit)$");
     std::smatch matches;
     std::vector<std::string> arguments;
 
