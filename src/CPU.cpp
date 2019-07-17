@@ -202,7 +202,7 @@ void CPU::div()
     eOperandType type;
     IOperand *first = _memory.pop();
     IOperand *second = _memory.pop();
-    if (std::stoi(second->toString()) == 0)
+    if (std::stoi(first->toString()) == 0)
         throw Exception("Error : div by 0.");
     if (first->getType() < second->getType())
         type = second->getType();
@@ -222,7 +222,7 @@ void CPU::mod()
     eOperandType type;
     IOperand *first = _memory.pop();
     IOperand *second = _memory.pop();
-    if (std::stoi(second->toString()) == 0)
+    if (std::stoi(first->toString()) == 0)
         throw Exception("Error : mod by 0.");
     if (first->getType() < second->getType())
         type = second->getType();

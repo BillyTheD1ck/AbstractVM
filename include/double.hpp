@@ -10,7 +10,7 @@
 
 #include "IOperand.hpp"
 #include <math.h>
-#include <sstream>
+#include <float.h>
 
 class Double : public IOperand
 {

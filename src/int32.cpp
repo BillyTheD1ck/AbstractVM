@@ -5,10 +5,15 @@
 ** Created by Ervin,
 */
 
-#include "../include/int32.hpp"
+#include "int32.hpp"
+#include "Exception.hpp"
 
 Int32::Int32(std::string val)
 {
+    if (std::stol(val) < -2147483648)
+        throw Exception("Error : int32 underflow.");
+    if (std::stol(val) > 2147483647)
+        throw Exception("Error : int32 overflow.");
     _value = std::stoi(val);
 }
 
@@ -25,9 +30,9 @@ eOperandType Int32::getType() const
     return INT32;
 }
 
-IOperand* Int32::operator-(const IOperand &rhs) const
+IOperand* Int32::operator+(const IOperand &rhs) const
 {
-    int32_t val = _value - std::stoi(rhs.toString());
+    int32_t val = _value + std::stoi(rhs.toString());
 
     std::ostringstream ss;
     ss << val;
@@ -35,9 +40,9 @@ IOperand* Int32::operator-(const IOperand &rhs) const
     return new Int32(s);
 }
 
-IOperand* Int32::operator+(const IOperand &rhs) const
+IOperand* Int32::operator-(const IOperand &rhs) const
 {
-    int32_t val = _value + std::stoi(rhs.toString());
+    int32_t val = std::stoi(rhs.toString()) - _value;
 
     std::ostringstream ss;
     ss << val;
@@ -57,7 +62,7 @@ IOperand* Int32::operator*(const IOperand &rhs) const
 
 IOperand* Int32::operator%(const IOperand &rhs) const
 {
-    int32_t val = _value / std::stoi(rhs.toString());
+    int32_t val = std::stoi(rhs.toString()) % _value;
 
     std::ostringstream ss;
     ss << val;
@@ -67,7 +72,7 @@ IOperand* Int32::operator%(const IOperand &rhs) const
 
 IOperand* Int32::operator/(const IOperand &rhs) const
 {
-    int32_t val = _value / std::stoi(rhs.toString());
+    int32_t val = std::stoi(rhs.toString()) / _value;
 
     std::ostringstream ss;
     ss << val;

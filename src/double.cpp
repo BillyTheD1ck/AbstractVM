@@ -5,10 +5,15 @@
 ** Created by tpautier,
 */
 
-#include "../include/double.hpp"
+#include "double.hpp"
+#include "Exception.hpp"
 
 Double::Double(std::string val)
 {
+    if (std::stold(val) < DBL_MIN)
+        throw Exception("Error : double underflow.");
+    if (std::stold(val) > DBL_MAX)
+        throw Exception("Error : double overflow.");
     _value = std::stod(val);
 }
 
@@ -25,9 +30,9 @@ eOperandType Double::getType() const
     return DOUBLE;
 }
 
-IOperand* Double::operator-(const IOperand &rhs) const
+IOperand* Double::operator+(const IOperand &rhs) const
 {
-    double val = _value - std::stod(rhs.toString());
+    double val = _value + std::stod(rhs.toString());
 
     std::ostringstream ss;
     ss << val;
@@ -35,9 +40,9 @@ IOperand* Double::operator-(const IOperand &rhs) const
     return new Double(s);
 }
 
-IOperand* Double::operator+(const IOperand &rhs) const
+IOperand* Double::operator-(const IOperand &rhs) const
 {
-    double val = _value + std::stod(rhs.toString());
+    double val = std::stod(rhs.toString()) - _value;
 
     std::ostringstream ss;
     ss << val;
@@ -57,7 +62,7 @@ IOperand* Double::operator*(const IOperand &rhs) const
 
 IOperand* Double::operator%(const IOperand &rhs) const
 {
-    double val = fmod(_value, std::stod(rhs.toString()));
+    double val = fmod(std::stod(rhs.toString()), _value);
 
     std::ostringstream ss;
     ss << val;
@@ -67,7 +72,7 @@ IOperand* Double::operator%(const IOperand &rhs) const
 
 IOperand* Double::operator/(const IOperand &rhs) const
 {
-    double val = _value / std::stod(rhs.toString());
+    double val = std::stod(rhs.toString()) / _value;
 
     std::ostringstream ss;
     ss << val;

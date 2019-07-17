@@ -6,9 +6,14 @@
 */
 
 #include "float.hpp"
+#include "Exception.hpp"
 
 Float::Float(std::string val)
 {
+    if (std::stold(val) < FLT_MIN)
+        throw Exception("Error : float underflow.");
+    if (std::stold(val) > FLT_MAX)
+        throw Exception("Error : float overflow.");
     _value = std::stof(val);
 }
 
@@ -37,7 +42,7 @@ IOperand* Float::operator+(const IOperand &rhs) const
 
 IOperand* Float::operator-(const IOperand &rhs) const
 {
-    float val = _value - std::stof(rhs.toString());
+    float val = std::stof(rhs.toString()) - _value;
 
     std::ostringstream ss;
     ss << val;
@@ -57,7 +62,7 @@ IOperand* Float::operator*(const IOperand &rhs) const
 
 IOperand* Float::operator/(const IOperand &rhs) const
 {
-    float val = _value * std::stof(rhs.toString());
+    float val = std::stof(rhs.toString()) / _value;
 
     std::ostringstream ss;
     ss << val;
@@ -67,7 +72,7 @@ IOperand* Float::operator/(const IOperand &rhs) const
 
 IOperand* Float::operator%(const IOperand &rhs) const
 {
-    float val = fmod(_value, std::stof(rhs.toString()));
+    float val = fmod(std::stof(rhs.toString()), _value);
 
     std::ostringstream ss;
     ss << val;

@@ -10,6 +10,7 @@
 
 #include "IOperand.hpp"
 #include <math.h>
+#include <float.h>
 
 class Float : public IOperand
 {

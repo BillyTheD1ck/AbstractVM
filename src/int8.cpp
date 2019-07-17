@@ -44,7 +44,7 @@ IOperand* Int8::operator+(const IOperand &rhs) const
 
 IOperand* Int8::operator-(const IOperand &rhs) const
 {
-    int val = _value - std::stoi(rhs.toString());
+    int val = std::stoi(rhs.toString()) - _value;
 
     std::ostringstream ss;
     ss << val;
@@ -64,7 +64,7 @@ IOperand* Int8::operator*(const IOperand &rhs) const
 
 IOperand* Int8::operator%(const IOperand &rhs) const
 {
-    int val = _value % std::stoi(rhs.toString());
+    int val = std::stoi(rhs.toString()) % _value;
 
     std::ostringstream ss;
     ss << val;
@@ -74,7 +74,7 @@ IOperand* Int8::operator%(const IOperand &rhs) const
 
 IOperand* Int8::operator/(const IOperand &rhs) const
 {
-    int val = _value / std::stoi(rhs.toString());
+    int val = std::stoi(rhs.toString()) / _value;
 
     std::ostringstream ss;
     ss << val;
