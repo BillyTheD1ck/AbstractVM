@@ -12,10 +12,6 @@ Int16::Int16(std::string val)
     _value = std::stoi(val);
 }
 
-Int16::~Int16()
-{
-}
-
 std::string Int16::toString() const
 {
     std::ostringstream ss;
