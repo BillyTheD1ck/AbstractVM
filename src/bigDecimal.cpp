@@ -10,7 +10,7 @@
 BigDecimal::BigDecimal(std::string val)
 {
     for (unsigned int i = 0; i < val.size(); i++) {
-        if (val.at(i) == ',')
+        if (val.at(i) == '.')
             _coma = i;
         else
             _bigInt.push_back(val.at(i));
