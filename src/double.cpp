@@ -10,9 +10,9 @@
 
 Double::Double(std::string val)
 {
-    if (std::stold(val) < DBL_MIN)
+    if (std::stold(val) < -1.7 * pow(10, 308))
         throw Exception("Error : double underflow.");
-    if (std::stold(val) > DBL_MAX)
+    if (std::stold(val) > 1.7 * pow(10, 308))
         throw Exception("Error : double overflow.");
     _value = std::stod(val);
 }
