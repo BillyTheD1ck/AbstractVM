@@ -1,5 +1,5 @@
 #!/bin/bash
-to_verify='0'
+to_verify='84'
 echo '################ return value on ";;" (EXPECTED) ###########'
 echo $to_verify
 echo '################ return value on ";;" (GOT) ################'

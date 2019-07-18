@@ -5,8 +5,7 @@ i
 t
 e
 c
-h
-'
+h'
 echo '################ 7*push, 7*(print,pop), dump and exit (EXPECTED) ###########'
 echo $to_verify
 echo '################ 7*push, 7*(print,pop), dump and exit (GOT) ################'

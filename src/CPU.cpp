@@ -137,7 +137,12 @@ void CPU::store()
 
 void CPU::print()
 {
-
+    if (_memory.top()->getType() == INT8) {
+        _returnValue += (char)std::atoi(_memory.top()->toString().c_str());
+        _returnValue += "\n";
+    }
+    else
+        throw Exception("Error : print value type on the top of the stack is not an int8.");
 }
 
 void CPU::add()
