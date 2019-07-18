@@ -25,6 +25,7 @@ SRC_UT_DIR	=	./src
 
 SRC_UT	=	$(SRC_UT_DIR)/test_factory.cpp	\
 		$(SRC_UT_DIR)/test_regex.cpp	\
+		$(SRC_UT_DIR)/test_operations.cpp
 
 NAME	=	unit_tests
 

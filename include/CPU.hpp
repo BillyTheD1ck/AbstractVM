@@ -23,11 +23,7 @@ class CPU
         CPU();
         ~CPU() = default;
 
-        void executeInstruction(std::vector<std::string> instruction);
-
-    void setValue(const std::string &value) {_value = value;}
-    void setValueType(const std::string &value) {_valueType = value;}
-    void setReturnValue(const std::string &value) {_returnValue = value;}
+    void executeInstruction(std::vector<std::string> instruction);
     std::string &getReturnValue() {return _returnValue;}
 
     private:
