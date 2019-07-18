@@ -42,8 +42,13 @@ clean	:
 
 fclean	:	clean
 		$(RM) $(NAME)
+		make fclean -C unit_tests/
 
 re	:	fclean all
 
 debug: 		CFLAGS += -g
 debug:		re
+
+test_run:
+		make -C unit_tests/
+		./unit_tests/unit_tests

@@ -22,10 +22,10 @@ class Chipset
         ~Chipset() = default;
 
         void processInstructions();
+        std::vector<std::string> getInstruction(std::string instruction);
 
     private:
 
-    std::vector<std::string> getInstruction(std::string instruction);
 
     CPU _cpu;
     IOManager _ioManager;

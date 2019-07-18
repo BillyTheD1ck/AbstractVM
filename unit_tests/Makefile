@@ -23,7 +23,8 @@ SRC	=	$(SRC_DIR)/Exception.cpp \
 
 SRC_UT_DIR	=	./src
 
-SRC_UT	=	$(SRC_UT_DIR)/test_factory.cpp
+SRC_UT	=	$(SRC_UT_DIR)/test_factory.cpp	\
+		$(SRC_UT_DIR)/test_regex.cpp	\
 
 NAME	=	unit_tests
 
