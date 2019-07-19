@@ -121,6 +121,7 @@ void CPU::load()
 
     IOperand *operand = Factory::createOperand(_operandTypes[_valueType], _register.getAt((unsigned int)std::atoi(_value.c_str()))->toString());
 
+    _register.clearRegisterAt((unsigned int)std::atoi(_value.c_str()));
     _memory.push(operand);
 }
 
