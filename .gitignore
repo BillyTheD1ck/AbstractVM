@@ -10,6 +10,7 @@ CMakelists.txt
 '*
 cmake-build-debug/
 .idea/
-*.gdca
+*.gcda
 *.gcno
 unit_tests
+.test_file

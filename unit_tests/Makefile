@@ -48,6 +48,7 @@ $(NAME)	:	$(OBJ)
 
 clean	:
 		$(RM) $(OBJ)
+		$(RM) .test_file
 
 fclean	:	clean
 		$(RM) $(NAME)
