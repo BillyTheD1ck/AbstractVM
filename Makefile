@@ -49,6 +49,6 @@ re	:	fclean all
 debug: 		CFLAGS += -g
 debug:		re
 
-test_run:
+tests_run:
 		make -C unit_tests/
 		./unit_tests/unit_tests
