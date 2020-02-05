@@ -1,3 +1,3 @@
 # abstractVM
 
-Projet de piscine de synthèse.
+Projet de piscine de synthèse
